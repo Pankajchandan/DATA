@@ -14,19 +14,19 @@ import numpy as np
 
 debug = False #only load 10 images
 
-label_dict = {"red_buoy":0, "green_buoy":1, "yellow_buoy":2, 
-            "path_marker":3, "start_gate":4, "channel":5}
-
-
+label_dict = {"Car":0, "SUV":1, "SmallTruck":2, 
+            "MediumTruck":3, "LargeTruck":4, "Pedestrian":5, "Bus":6, "Van":7, "GroupOfPeople":8,
+	    "Bicycle":9, "Motorcycle":10, "TrafficSignal":11, "Green":12, "TrafficSignal-Yellow":13, "TrafficSignal-Red":14, "Crossing":15}
+ 
 text = ''
-for filename in os.listdir('labels'):
+for filename in os.listdir('nvidia-labels'):
     f = open(os.path.join('labels', filename), 'r')
     text += f.read()[:]
 text = text.replace('\n\n\n','\n\n')
 image_labels = text.split('\n\n')
 image_labels = [i.split('\n') for i in image_labels]
 
-dataset_start = image_labels[0][0].find('underwater') # where the URL becomes = to path
+dataset_start = image_labels[0][0].find('images') # where the URL becomes = to path
 for i, s in enumerate(image_labels):# all labels
     if 'http' in s[0]:
         image_labels[i][0] = s[0][dataset_start:].split("/") #  replace with path strings, easier to get to
