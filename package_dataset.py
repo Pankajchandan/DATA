@@ -73,5 +73,5 @@ image_labels = [np.array(i[1:]) for i in image_labels]# remove the file names
 image_labels = np.array(image_labels)
 
 #save dataset
-np.savez("underwater_data", images=images, boxes=image_labels)
-print('Data saved: underwater_data.npz')
+np.savez("nvidia_data", images=images, boxes=image_labels)
+print('Data saved: nvidia_data.npz')

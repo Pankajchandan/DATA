@@ -12,11 +12,11 @@ import sys
 
 
 file_out=open('nvidia-labels.txt', 'w')
-directory="/home/pankaj/dataset"
+directory="/datasets/aic1080/train/labels"
 for filename in os.listdir(directory):
     if filename.endswith(".txt"):
         s=open(os.path.join(directory, filename)).read()
-        file_out.write("https://github.com/shadySource/DATA/raw/master/images/"+filename+"\n"+s+"\n"+"\n")
+        file_out.write("https://github.com/shadySource/DATA/raw/master/datasets/aic1080/train/images/"+filename+"\n"+s+"\n"+"\n")
 file_out.close()
 print("Done")
 
